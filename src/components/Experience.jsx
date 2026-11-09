@@ -42,34 +42,29 @@ export default function Experience() {
   const prefersReducedMotion = useReducedMotionPreference();
 
   return (
-    <section id="experience" className="px-6 py-24 md:px-16">
+    <section id="experience" className="section-rule px-6 py-24 md:px-16 md:py-32">
       <div className="mx-auto max-w-7xl">
         <motion.div {...motionProps(prefersReducedMotion)}>
-          <p className="font-mono text-xs font-medium uppercase tracking-widest text-indigo-400">Experience</p>
-          <h2 className="mt-4 font-display text-3xl font-semibold text-white md:text-4xl">Where I Have Worked</h2>
+          <p className="font-mono text-sm font-medium uppercase tracking-widest text-accent">Experience</p>
+          <h2 className="mt-4 font-display text-4xl font-semibold text-white md:text-5xl">Where I Have Worked</h2>
         </motion.div>
 
-        <div className="relative mt-14 space-y-8 md:ml-4">
-          <div className="absolute bottom-0 left-3 top-0 hidden w-px bg-indigo-500/30 md:block" />
-          {entries.map((entry) => (
+        <div className="mt-12">
+          {entries.map((entry, index) => (
             <motion.article
               key={`${entry.role}-${entry.company}`}
-              className="relative md:pl-12"
+              className="grid gap-4 border-t border-white/10 py-8 md:grid-cols-[170px_1fr] md:gap-12 md:py-10"
               {...motionProps(prefersReducedMotion, fadeLeft)}
             >
-              <span className="absolute left-[7px] top-8 hidden h-3 w-3 rounded-full bg-indigo-400 shadow-[0_0_0_8px_rgba(99,102,241,0.12)] md:block" />
-              <div className="glass-panel rounded-2xl p-5">
-                <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-                  <div>
-                    <h3 className="font-display text-lg font-semibold text-white">{entry.role}</h3>
-                    <p className="mt-1 text-sm font-medium text-indigo-400">{entry.company}</p>
-                  </div>
-                  <p className="font-mono text-xs uppercase tracking-wider text-muted">{entry.period}</p>
-                </div>
-                <ul className="mt-5 space-y-3 text-sm leading-relaxed text-muted">
+              <p className="font-mono text-sm uppercase tracking-wider text-muted">{entry.period}</p>
+              <div>
+                <p className="font-mono text-xs uppercase tracking-widest text-accent">0{index + 1}</p>
+                <h3 className="mt-2 font-display text-2xl font-medium text-white">{entry.role}</h3>
+                <p className="mt-1 text-base text-muted sm:text-lg">{entry.company}</p>
+                <ul className="mt-5 space-y-3 text-base leading-7 text-muted md:text-lg">
                   {entry.bullets.map((bullet) => (
                     <li key={bullet} className="flex gap-3">
-                      <span className="mt-[0.35rem] h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400/80" />
+                      <span className="mt-[0.55rem] h-1 w-1 shrink-0 rounded-full bg-accent/80" />
                       <span>{bullet}</span>
                     </li>
                   ))}

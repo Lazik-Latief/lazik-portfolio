@@ -1,20 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
   color-scheme: dark;
-  --bg-primary: #090e1a;
-  --bg-secondary: #0f172a;
-  --bg-card: #111827;
-  --accent: #6366f1;
-  --accent-soft: #818cf8;
-  --accent-glow: rgba(99, 102, 241, 0.15);
-  --text-primary: #f8fafc;
-  --text-muted: #94a3b8;
-  --border: rgba(255, 255, 255, 0.07);
+  --bg-primary: #10100f;
+  --bg-secondary: #151513;
+  --bg-card: #191917;
+  --accent: #d2b779;
+  --accent-soft: #e4d2a2;
+  --text-primary: #f3f1eb;
+  --text-muted: #a5a39b;
+  --border: rgba(243, 241, 235, 0.1);
 }
 
 * {
@@ -23,6 +20,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
   background: var(--bg-primary);
 }
 
@@ -31,22 +29,68 @@ body {
   min-width: 320px;
   overflow-x: hidden;
   font-family: "Inter", sans-serif;
+  font-size: 18px;
+  line-height: 1.65;
   background-color: var(--bg-primary);
   color: var(--text-primary);
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 17px;
+  }
+}
+
+::selection {
+  background: rgba(210, 183, 121, 0.28);
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.font-display {
+  font-family: "Space Grotesk", "Inter", sans-serif;
+}
+
+.font-mono {
+  font-family: "JetBrains Mono", monospace;
+}
+
+.profile-disc {
+  background:
+    radial-gradient(circle at 35% 30%, rgba(228, 210, 162, 0.14), transparent 43%),
+    linear-gradient(145deg, #29261f, #171714 72%);
+  box-shadow:
+    0 0 0 8px rgba(210, 183, 121, 0.045),
+    inset 0 0 34px rgba(0, 0, 0, 0.3);
+}
+
+.section-rule {
+  border-top: 1px solid var(--border);
+}
+
+.editorial-grid {
+  background-image:
+    linear-gradient(rgba(243, 241, 235, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(243, 241, 235, 0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 button,
 a {
   -webkit-tap-highlight-color: transparent;
-}
-
-::selection {
-  background: rgba(99, 102, 241, 0.35);
-  color: #ffffff;
-}
-
-.glass-panel {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(16px);
 }
